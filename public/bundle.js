@@ -700,25 +700,57 @@ __webpack_require__.r(__webpack_exports__);
  *  EDIT ONLY INSIDE THIS RENDER FUNCTION
  *  This function is called every time the user changes types or changes any input
  */
-function render(variables = {}) {
+function render(variables) {
+  console.log(variables);
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
-  if (variables.includeCover == false) cover = "<div class='cover'></div>";
-  let aName = "Name";
-  if (variables.name !== null) aName = variables.name;
+  if (variables.includeCover == false) {
+    cover = "<div class='cover'></div>";
+  }
+  let aName = "";
+  if (variables.name !== null) {
+    aName = variables.name;
+  } else {
+    aName = "Name";
+  }
   let lName = "Last Name";
-  if (variables.lastname !== null) lName = variables.lastname;
+  if (variables.lastname !== null) {
+    lName = variables.lastname;
+  }
   let work = "Role";
-  if (variables.role !== null) work = variables.role;
+  if (variables.role !== null) {
+    work = variables.role;
+  }
   let place = "City";
-  if (variables.city !== null) place = variables.city;
+  if (variables.city !== null) {
+    place = variables.city;
+  }
   let countryname = "Country";
-  if (variables.country !== null) countryname = variables.country;
+  if (variables.country !== null) {
+    countryname = variables.country;
+  }
   let position = "S.M. Position";
-  if (variables.socialMediaPosition !== null) position = variables.socialMediaPosition;
+  if (variables.socialMediaPosition !== null) {
+    position = variables.socialMediaPosition;
+  }
   let tweeter = "Twitter";
-  if (variables.twitter !== null) tweeter = variables.twitter;
+  if (variables.twitter !== null) {
+    tweeter = variables.twitter;
+  }
+  let platform = "Github";
+  if (variables.github !== null) {
+    platform = variables.github;
+  }
+  let officialplatform = "LinkedIn";
+  if (variables.linkedin !== null) {
+    officialplatform = variables.linkedin;
+  }
+  let social = "Instagram";
+  if (variables.instagram !== null) {
+    social = variables.instagram;
+  }
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
@@ -728,9 +760,9 @@ function render(variables = {}) {
           <h3>${place}, ${countryname}</h3>
           <ul class= "${position}">
             <li><a href="https://twitter.com/${tweeter}"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/bharathichinnusamy"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://github.com/${platform}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${officialplatform}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${social}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
